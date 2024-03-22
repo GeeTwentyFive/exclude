@@ -15,75 +15,6 @@
 
 
 
-//int GetBaseDir(char* out, char* target) {
-//
-//	char* target_split_address = NULL;
-//	for (int i = strlen(target); i > 0; i--) {
-//
-//		if (target[i] == '/' || target[i] == '\\') {
-//
-//			target_split_address = target+i; break;
-//
-//		}
-//
-//	}
-//
-//
-//
-//	if (target_split_address == NULL) {
-//
-//		char current_dir[MAX_PATH];
-//		if (getcwd(current_dir, MAX_PATH) == NULL) { puts("ERROR: getcwd() failed in GetBaseDir()"); return -1; }
-//
-//		strcpy(out, current_dir);
-//
-//	} else {
-//
-//		strncpy(out, target, (size_t)(target_split_address - target));
-//
-//	}
-//
-//
-//
-//	return 0;
-//
-//}
-//
-//
-//
-//int GetFilenameFromPath(char* out, char* target) {
-//
-//	char* target_split_address = NULL;
-//	for (int i = strlen(target); i > 0; i--) {
-//
-//		if (target[i] == '/' || target[i] == '\\') {
-//
-//			target_split_address = target+i+1; break;
-//
-//		}
-//
-//	}
-//
-//
-//
-//	if (target_split_address == NULL) {
-//
-//		strcpy(out, target);
-//
-//	} else {
-//
-//		strcpy(out, target_split_address);
-//
-//	}
-//
-//
-//
-//	return 0;
-//
-//}
-
-
-
 int SeperatePath(char* out_base_dir_path, char* out_filename, char* target) {
 
 	char* target_split_address = NULL;
@@ -220,10 +151,10 @@ int Concatenate(char* target_file_path) {
 	char target_file_name[MAX_PATH] = {0};
 	if (SeperatePath(target_file_base_dir_path, target_file_name, target_file_path) != 0) { puts("ERROR: SeperatePath() failed in Concatenate()"); return -1; }
 
-char TEMP_DEBUG[MAX_PATH] = {0};
-getcwd(TEMP_DEBUG, MAX_PATH); printf("\n\nDEBUG: %s\n\n", TEMP_DEBUG);
+
+
 	if (chdir(target_file_base_dir_path) != 0) { puts("ERROR: chdir(target_file_base_dir_path) failed in Concatenate()"); return -1; }
-getcwd(TEMP_DEBUG, MAX_PATH); printf("\n\nDEBUG: %s\n\n", TEMP_DEBUG);
+
 
 
 	long int target_file_size;
