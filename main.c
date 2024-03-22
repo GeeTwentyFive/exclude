@@ -115,25 +115,6 @@ char* ReadAll(long int* out_target_file_size, char* target_file_path) {
 
 
 
-// Design:
-// + IN: <TARGET_PATH> <INCLUDE_PRE> [INCLUDE_POST](Def.: newline)
-// + char* Concatenate()
-// 	+ start_dir = getcwd()
-// 	+ chdir(TARGET_BASE_DIR)
-// 	+ open(TARGET_FILE)
-// 	+ Loop through, putchar, & find include's
-// 		+ If found:
-// 			+ Concatenate(include_file_path);
-// 	+ close(TARGET_FILE)
-// 	+ chdir(start_dir)
-// + Write Concatenate() output to stdout
-
-
-
-
-
-
-
 static char* include_pre;
 static size_t include_pre_len;
 
